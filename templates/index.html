@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to Hello App</h1>
+    <form action="/greet" method="POST">
+        <label for="name">Enter your name:</label>
+        <input typr="text" id="name" name="name">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+<script>
+    document.addEventListner("DOMContentLoaded", () => {
+	    const form = document.querySelector("form");
+		form.addEventListner("submit", (e) => {
+		    const nameInput = document.querySelector("#name").value;
+			if (!nameInput) {
+			    alert("Please enter your name!");
+				e.preventDefault();
+			}
+		});
+	});
+</script>
